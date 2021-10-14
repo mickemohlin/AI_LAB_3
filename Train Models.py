@@ -116,7 +116,7 @@ def convolutional_model():
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=0.01),
+                  optimizer=K.optimizers.SGD(lr=100.0),
                   metrics=["accuracy"])
     return model
 
