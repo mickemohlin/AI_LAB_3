@@ -100,7 +100,7 @@ def non_convolutional_model():
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=0.01),
+                  optimizer=K.optimizers.SGD(lr=0.01), # LR
                   metrics=["accuracy"])
     return model
 
@@ -116,7 +116,7 @@ def convolutional_model():
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=100.0),
+                  optimizer=K.optimizers.SGD(lr=0.01),
                   metrics=["accuracy"])
     return model
 
@@ -133,7 +133,7 @@ model = non_convolutional_model()
 model.fit(x_train, y_train,
       epochs=50, 
       validation_split=0.2, 
-      batch_size=256,
+      batch_size=256, # batch
       verbose=1,
       callbacks=[tb_callback]
      )
