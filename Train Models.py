@@ -127,7 +127,8 @@ log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tb_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, profile_batch=0)
 
 # Välj en modell
-model = non_convolutional_model()
+#model = non_convolutional_model()
+model = convolutional_model()
 
 # Träna modellen
 model.fit(x_train, y_train,
