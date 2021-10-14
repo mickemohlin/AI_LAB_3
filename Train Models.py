@@ -100,7 +100,7 @@ def non_convolutional_model():
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=0.01), # LR
+                  optimizer=K.optimizers.SGD(lr=0.01),
                   metrics=["accuracy"])
     return model
 

@@ -25,6 +25,20 @@ I den här filen ska ni beskriva:
 - Anledningen till varför träningstiden är längre för convolutional model är för att den analyserar en bild mycket djupare än ett normalt nätverk och innehar ett såkallat convolutional layer som är bra för att fånga "lokal"information (t.ex. grannpixlar i en bild eller omgivande ord i en text) samt för att minska modellens komplexitet. Kort sagt kan man säg att modellen analyserar bilden bit för bit i med avsikt att på att få ett bättre resultat på vad det egentligen är på bilden. Detta leder i sin tur att analysering samt träningen tar längre tid att genomföra än det gör för den vanliga modellen.
 
 
+# d.
+- På bilderna "d_moved_data", "d_rotated_data" och "d_test_data" kan man se skillnaderna på resulteten mellan den normala och konvolutionella modellen.
+    - Vänstra delen på bilderna: Normala modellens resultat.
+    - Högra delen på bilderna: Konvolutionella modellens resultat.
+
+- Resultaten mellan de olika testseten skiljer sig ganska så markant. Anlendningen till varför man kan se en skillnad på resultaten är för att datan som modellerna får in som input har olika format. Datan som är "normal" är enklare för modellerna att tolka och förutsäga till skillnad mot siffrorna som exempelvis är roterade.
+
+- Skillnaderna på resultaten (Average accuracy) mellan de olika datasetsen är inte riktigt samma för modellerna.
+    - Skillnad på resultat mellan moved och rotated:
+        - Normal Model: 62.15
+        - Convolutional Model: 68.57
+    - Skillnad på resultat mellan rotated och test:
+        - Normal Model: 18.84
+        - Convolutional model: 10.94
 
 ## Glöm inte!
 Glöm inte att ha med figurer:
