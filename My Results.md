@@ -1,9 +1,3 @@
-# Här är mina resultat hittils:
-
-I den här filen ska ni beskriva:
-- Era experiment
-- Era slutsatser
-
 # Svar till frågor på del 7:
 ## a.
 - Det går snabbare om man ökar hastigheten (lr) till en viss gräns. I vårat fall så ger värdet lr=0.1 den snabbaste tiden. Men när vi testar med högre värden såsom 0.5 och 10.0 så    ger inte det någon snabbare tid. 
@@ -78,6 +72,19 @@ I den här filen ska ni beskriva:
     - De bästa värdena för att få så bra prestanda som möjligt och inte bryr sig om hur lång tid det tar är då kernel_size: (13,13) och strides: (1,1).
 
 
-## Glöm inte!
-Glöm inte att ha med figurer:
-![TensorBoard download](fig/TensorBoardDownload.png "Glöm inte att kryssa i 'Show data download links' så att ni kan ladda ner era filer.")
+## g.
+- Testade antal lager och dess resultat på den "vanliga modellen"
+    1. 1 lager --> Time: 23s | Rotated Data: 76.17 | Moved Data: 12.65 | Test Data: 93.28
+    2. 2 lager --> Time: 24s | Rotated Data: 75.84 | Moved Data: 13.40 | Test Data: 93.86
+    3. 3 lager --> Time: 25s | Rotated Data: 79.85 | Moved Data: 13.11 | Test Data: 94.81
+    4. 4 lager --> Time: 26s | Rotated Data: 79.88 | Moved Data: 13.91 | Test Data: 94.29
+    5. 5 lager --> Time: 26s | Rotated Data: 79.37 | Moved Data: 14.70 | Test Data: 94.65
+    6. 6 lager --> Time: 27s | Rotated Data: 77.13 | Moved Data: 15.05 | Test Data: 95.36
+    7. 7 lager --> Time: 29s | Rotated Data: 78.53 | Moved Data: 14.49 | Test Data: 94.89
+    8. 8 lager --> Time: 29s | Rotated Data: 77.84 | Moved Data: 13.59 | Test Data: 94.50
+
+- Slutsats: 
+    - Tiden ökar med ungefär en sekund med varje lager man lägger till.
+    - För rotated data så ökar precisionen fram till 4 lager och därefter så sjunker det om man lägger till fler lager.
+    - För moved och test data så ökar precisionen fram till 6 lager och sjunker därefter efter ytterligare lager.
+
