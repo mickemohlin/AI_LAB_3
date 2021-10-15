@@ -59,6 +59,25 @@ I den här filen ska ni beskriva:
 
 - Det verkar inte finns någon övre gräns på hur många neuroner man ska ha, ju fler man har desto bättre resultat får man. Men om man inte vill vänta allt för länge på träningen så skulle jag säga att 64 neuroner är en bra gräns, med avseende på resultat och tid.
 
+
+## f.
+- De olika testade värdena är:
+    1. kernel_size: (8,8), strides: (1,1) --> Average Accuracy: 97.40 (9m 48s)
+    2. kernel_size: (8,8), strides: (2,2) --> Average Accuracy: 96.85 (2m 25s)
+    3. kernel_size: (12,12), strides: (1,1) --> Average Accuracy: 97.40 (8m 20s)
+    4. kernel_size: (12, 12), strides: (2,2) --> Average Accuracy: 97.01 (2m 33s)
+    5. kernel_size: (13, 13), strides: (1,1) --> Average Accuracy: 97.56 (9m 38s)
+    6. kernel_size: (14, 14), strides: (1,1) --> Average Accuracy: 97.27 (8m 14s)
+    7. kernel_size: (16,16), strides: (1,1) --> Average Accuracy: 96.58 (8m 15s)
+    8. kernel_size: (14,14), strides: (3,3) --> Average Accuracy: 94.82 (1m 18s)
+    9. kernel_size: (16,16), strides: (1,1) --> Average Accuracy: 96.58 (8m 15s)
+
+- Slutsats:
+    - När värdet på "strides" ökar, så minskar därmed prestandan, det optimala värdet enligt resultatet på dessa tester är: (1,1)
+    - När värdet på "kernel_size" överstiger (13,13) så minskar prestandan, med det sagt så är det optimala värdet (13,13)
+    - De bästa värdena för att få så bra prestanda som möjligt och inte bryr sig om hur lång tid det tar är då kernel_size: (13,13) och strides: (1,1).
+
+
 ## Glöm inte!
 Glöm inte att ha med figurer:
 ![TensorBoard download](fig/TensorBoardDownload.png "Glöm inte att kryssa i 'Show data download links' så att ni kan ladda ner era filer.")
