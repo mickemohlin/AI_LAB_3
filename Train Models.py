@@ -102,8 +102,8 @@ def non_convolutional_model():
     model.add(K.layers.Dense(128, activation="relu")) # layer 4
     model.add(K.layers.Dense(128, activation="relu")) # layer 5
     model.add(K.layers.Dense(128, activation="relu")) # layer 6
-    # model.add(K.layers.Dense(256, activation="relu")) # layer 7
-    # model.add(K.layers.Dense(256, activation="relu")) # layer 8
+    model.add(K.layers.Dense(128, activation="relu")) # layer 7
+    model.add(K.layers.Dense(128, activation="relu")) # layer 8
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
@@ -123,7 +123,7 @@ def convolutional_model():
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=0.1),
+                  optimizer=K.optimizers.SGD(lr=0.01),
                   metrics=["accuracy"])
     return model
 

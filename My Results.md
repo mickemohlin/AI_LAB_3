@@ -83,6 +83,11 @@
     7. 7 lager --> Time: 29s | Rotated Data: 78.53 | Moved Data: 14.49 | Test Data: 94.89
     8. 8 lager --> Time: 29s | Rotated Data: 77.84 | Moved Data: 13.59 | Test Data: 94.50
 
+- Test antal lager med "convolutional model"
+    1. 1 lager --> Time: 2m35s | Rotated Data: 89.38 | Moved Data: 20.40 | Test Data: 98.50
+    2. 2 lager --> Time: 6m9s  | Rotated Data: 90.42 | Moved Data: 21.43 | Test Data: 98.48
+    3. 3 lager --> Time: 7m48s | Rotated Data: 90.66 | Moved Data: 22.20 | Test Data: 98.74
+
 - Slutsats: 
     - Tiden ökar med ungefär en sekund med varje lager man lägger till.
     - För rotated data så ökar precisionen fram till 4 lager och därefter så sjunker det om man lägger till fler lager.
