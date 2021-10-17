@@ -152,8 +152,8 @@
     convolutional model
     lr: 0.1 
     batch_size: 100,
-    neuroner: 8, 
-    kernal_size: 12,12
+    neuroner: 8, eftersom att det är då träningstiden är som minst samtidigt som average accuracy håller sig över 90, träningstiden ökar därefter väldigt mycket samtidigt som average accuracy gör minimala ökningar
+    kernal_size: 12,12, eftersom värdet på kernal_size är 12,12 ger ett kostnadseffektivt resultat
     strides: 1,1
     layers: 1,
 
@@ -162,19 +162,32 @@
     Ger en tydlig förbättring för moved data men ökar tiden med över 7x jämfört med tidigare.
 
 ## Experiment 7
-    Försök att förbättra tiden genom att 
+    Försök att förbättra tiden genom att minska kernal_size (12 => 8)
     
     convolutional model
     lr: 0.1 
     batch_size: 100,
     neuroner: 8, 
+    kernal_size: 8,8
+    strides: 1,1
+    layers: 1,
+
+    Resultat --> Time: 1m47s | Moved Data: 21.31 | Rotated Data: 86.08 | Test Data: 98.57 | Train Data: 98.38
+
+## Experiment 8
+    Försök att förbättra resultat genom att öka antalet neuroner
+    
+    convolutional model
+    lr: 0.1 
+    batch_size: 100,
+    neuroner: 16, 
     kernal_size: 12,12
     strides: 1,1
     layers: 1,
 
-    Resultat --> Time: 1m55s | Moved Data: 21.31 | Rotated Data: 86.08 | Test Data: 98.57 | Train Data: 98.38
+    Resultat --> Time: 2m27s | Moved Data: 23.46 | Rotated Data: 87.88 | Test Data: 98.78 | Train Data: 99.67
 
-    Ger en tydlig förbättring för moved data men ökar tiden med över 7x jämfört med tidigare.
+    Ger en tydlig förbättring för moved data men ger en stor ökning rent tidsmässigt.
 
 ## Slutsats:
     Med convolutional model kan man få fram ett bättre resultat med ganska stor kostnad tidsmässigt, vilket inte känns speciellt värt om tidseffektivitet är nödvändigt.
