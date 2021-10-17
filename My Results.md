@@ -88,3 +88,95 @@
     - För rotated data så ökar precisionen fram till 4 lager och därefter så sjunker det om man lägger till fler lager.
     - För moved och test data så ökar precisionen fram till 6 lager och sjunker därefter efter ytterligare lager.
 
+## Svar till experiment del 8.
+
+## Experiment 1
+    non convolutional model: avsevärt mycket snabbare än convolutional, men ger inte riktigt lika bra resultat. Använder
+    därför "bättre" värden på de andra parametrarna för ge ett bättre resultat
+    lr: 0.1 ger det bästa resultatet för oss, lite högre än så ger minimal skillnad tidsmässigt och försämrar resultatet avsevärt
+    batch_size: 100, ökat värde ger minimalt kortare tid men sämre resultat
+    neuroner: 64, ger bäst resultat och kostar tidsmässigt i stort sett lika mycket som de lägre antal neuroner
+    layers: 8, har en minimal påverkan tidsmässigt men ger bättre resultat
+
+    Resultat --> Time: 14s | Moved Data: 15.99 | Rotated Data: 85.23 | Test Data: 97.66 | Train Data: 99.49
+
+## Experiment 2
+    Testar att dubbla neuroner (64 => 128) samt minskar batch_size eftersom att det verkar ha minimal påverkan på tiden men ger ett bättre resultat
+    
+    non convolutional model
+    lr: 0.1 
+    batch_size: 50, 
+    neuroner: 128, 
+    layers: 8, 
+
+    Resultat --> Time: 29s | Moved Data: 16.59 | Rotated Data: 88.26 | Test Data: 97.9 | Train Data: 99.55
+
+## Experiment 3
+    Testar att öka batch_size (50 => 100) för att försöka minska tiden och se om det påverkar resultat negativt
+    
+    non convolutional model
+    lr: 0.1 
+    batch_size: 100, 
+    neuroner: 128, 
+    layers: 8, 
+
+    Resultat --> Time: 17s | Moved Data: 17.4 | Rotated Data: 86.7 | Test Data: 98.18 | Train Data: 99.58
+
+## Experiment 4
+    Testar att öka neuroner igen (128 => 256) för att se om tidsökningen är värd resultatförbättringen
+    
+    non convolutional model
+    lr: 0.1 
+    batch_size: 100,
+    neuroner: 128, 
+    layers: 8, 
+
+    Resultat --> Time: 31s | Moved Data: 17.7 | Rotated Data: 88.17 | Test Data: 98.06 | Train Data: 99.6
+
+    Tiden dubblerades nästan och resultatökningen känns inte så kostnadseffektiv tidsmässigt
+
+## Experiment 5
+    För att försöka få ett bättre resultat på moved sänker jag layers (8 => 6) vilket borde ge en kostnadseffektiv förbättring både tids- och resultatmässigt enligt testen i uppgift 7g
+    
+    non convolutional model
+    lr: 0.1 
+    batch_size: 100,
+    neuroner: 128, 
+    layers: 6, 
+
+    Resultat --> Time: 15s | Moved Data: 16.86 | Rotated Data: 87.51 | Test Data: 97.83 | Train Data: 99.59
+
+## Experiment 6
+    För att försöka få ett bättre resultat användar jag nu istället convolutional model
+    
+    convolutional model
+    lr: 0.1 
+    batch_size: 100,
+    neuroner: 8, 
+    kernal_size: 12,12
+    strides: 1,1
+    layers: 1,
+
+    Resultat --> Time: 1m55s | Moved Data: 22.18 | Rotated Data: 88.17 | Test Data: 98.57 | Train Data: 99.39
+
+    Ger en tydlig förbättring för moved data men ökar tiden med över 7x jämfört med tidigare.
+
+## Experiment 7
+    Försök att förbättra tiden genom att 
+    
+    convolutional model
+    lr: 0.1 
+    batch_size: 100,
+    neuroner: 8, 
+    kernal_size: 12,12
+    strides: 1,1
+    layers: 1,
+
+    Resultat --> Time: 1m55s | Moved Data: 21.31 | Rotated Data: 86.08 | Test Data: 98.57 | Train Data: 98.38
+
+    Ger en tydlig förbättring för moved data men ökar tiden med över 7x jämfört med tidigare.
+
+## Slutsats:
+    Med convolutional model kan man få fram ett bättre resultat med ganska stor kostnad tidsmässigt, vilket inte känns speciellt värt om tidseffektivitet är nödvändigt.
+    - Convolutional model ger betydligt bättre resultat för moved data, men ingen större skillnad för den andra datan
+    - Convolutional model känns inte helt värt baserat på dessa experiment med tanke på att det tar nästan 7x längre tid
