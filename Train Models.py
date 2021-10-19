@@ -96,18 +96,11 @@ def non_convolutional_model():
     model = K.Sequential()
     model.add(K.layers.Flatten())
     model.add(K.layers.Input(28*28))
-    model.add(K.layers.Dense(128, activation="relu")) # layer 1
-    model.add(K.layers.Dense(128, activation="relu")) # layer 2
-    model.add(K.layers.Dense(128, activation="relu")) # layer 3
-    model.add(K.layers.Dense(128, activation="relu")) # layer 4
-    model.add(K.layers.Dense(128, activation="relu")) # layer 5
-    model.add(K.layers.Dense(128, activation="relu")) # layer 6
-    model.add(K.layers.Dense(128, activation="relu")) # layer 7
-    model.add(K.layers.Dense(128, activation="relu")) # layer 8
+    model.add(K.layers.Dense(32, activation="relu"))
     model.add(K.layers.Dense(10, activation="softmax"))
     
     model.compile(loss="categorical_crossentropy",
-                  optimizer=K.optimizers.SGD(lr=0.1),
+                  optimizer=K.optimizers.SGD(lr=0.5),
                   metrics=["accuracy"])
     return model
 
@@ -134,14 +127,13 @@ log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tb_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, profile_batch=0)
 
 # Välj en modell
-# model = non_convolutional_model()
-model = convolutional_model()
+model = non_convolutional_model()
 
 # Träna modellen
 model.fit(x_train, y_train,
       epochs=50, 
       validation_split=0.2, 
-      batch_size=100,
+      batch_size=256,
       verbose=1,
       callbacks=[tb_callback]
      )

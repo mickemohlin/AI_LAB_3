@@ -1,16 +1,15 @@
 # Svar till frågor på del 7:
+
 ## a.
-- Det går snabbare om man ökar hastigheten (lr) till en viss gräns. I vårat fall så ger värdet lr=0.1 den snabbaste tiden. Men när vi testar med högre värden såsom 0.5 och 10.0 så    ger inte det någon snabbare tid. 
+- Det går snabbare om man ökar hastigheten (lr) till en viss gräns med bara någons sekunds skillnad. I vårat fall så ger värdet lr=0.1 den snabbaste tiden. Men när vi testar med högre värden såsom 0.5 och 10.0 så ger inte det någon snabbare tid. 
 
-- Det verkar som att det finns en gräns för hur högt optimalt värde på lr man kan ha. När man sätter ett högt värde så påverkas inte träningstiden så mycket men värdena på epoch_loss  och epoch_accuracy blir mycket sämre.
-
--  I figurerna: "a_epoch_accuracy" och "a_epoch_loss" så kan man tydligt se en tydlig skillnad på värdena. De två linjer som avviker sig väldigt mycket ifrån de andra linjerna är resultaten då lr är satta till 10.0 och 1000.0
+- Det verkar som att det finns en gräns för hur högt optimalt värde på lr man kan ha. Vid lr = 0.5 så får man ut den bästa resultatet på accuracy. Men går man högre än så så blir resultatet sämre och sämre.
 
 
 ## b. 
-- Ju mer man sänker värdet på batch_size desto bättre/önskvärda blir värdena, dock så tar träningen längre tid.
+- Ju mer man sänker värdet på batch_size detso längre tid tar träningen.
 
-- I figurerna: "b_epoch_accuracy" och "b_epoch_loss" så ser vi resultaten på experimentent med olika batch_size värden. De olika värden som testats är: 256, 200, 150 och 100.
+- Resultatet blir bättre ju mer man sänker batch_size, men till en gräns på ca 100. Om man sänker batch_size ytterligare så blir resultatet sämre.
 
 
 ## c.
@@ -93,7 +92,7 @@
     - För rotated data så ökar precisionen fram till 4 lager och därefter så sjunker det om man lägger till fler lager.
     - För moved och test data så ökar precisionen fram till 6 lager och sjunker därefter efter ytterligare lager.
 
-## Svar till experiment del 8.
+# Svar till experiment del 8.
 
 ## Experiment 1
     non convolutional model: avsevärt mycket snabbare än convolutional, men ger inte riktigt lika bra resultat. Använder
